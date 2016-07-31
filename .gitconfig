@@ -1,0 +1,13 @@
+[user]
+	name =
+	email = 
+	username =
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
+[core]
+	autocrlf = input
+	safecrlf = true
+[alias]
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
