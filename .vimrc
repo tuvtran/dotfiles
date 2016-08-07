@@ -21,7 +21,7 @@ set wildmenu
 set wildmode=full
 
 "Set up tab spaces
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set autoindent
 set hls
 
