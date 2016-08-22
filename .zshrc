@@ -55,7 +55,6 @@ plugins=(git)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-# source $HOME/.rvm/scripts/rvm
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -85,11 +84,13 @@ alias omz="cd ~/.oh-my-zsh"
 alias pj="cd ~/Projects"
 alias speed-up="sudo rm /var/log/asl/*.asl"
 alias journals="cd ~/Documents/Personal/Journals/"
-
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+alias cpp="g++ -pipe -O2 -std=c++14" 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 #
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="/usr/local/sbin:$PATH"
