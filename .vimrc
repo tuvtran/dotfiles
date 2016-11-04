@@ -14,9 +14,9 @@ execute pathogen#infect()
 "Appearances
 syntax enable
 " set background=light
-colo zellner
+colo desert
 
-" Autocompletion menu in zsh with <C-d> in vim
+"Autocompletion menu in zsh with <C-d> in vim
 set wildmenu
 set wildmode=full
 
@@ -29,8 +29,13 @@ set hls
 set list
 set listchars=tab:\|\ 
 
-" backspace problem
+"backspace problem
 set backspace=indent,eol,start
+
+"Split right
+set splitright
+"Split below
+set splitbelow
 
 "Enter a new line
 map <ENTER> o<ESC>
@@ -42,12 +47,13 @@ map <C-s> A;<ESC>
 set number
 filetype plugin indent on
 
-autocmd vimenter * NERDTree
+"Automatically open NERDTree when enter vim
+"autocmd vimenter * NERDTree
 
 "NERDTree shit
 map <C-n> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_new_tab=1
-" let g:nerdtree_tabs_autoclose=0
+let g:nerdtree_tabs_autoclose=1
 let g:nerdtree_tabs_focus_on_files=1
 
 let NERDTreeShowHidden=1
@@ -70,6 +76,8 @@ let g:jsx_ext_required = 0
 
 "vim-airline
 let g:airline#extensions#tabline#enabled = 1
+" statusline appears all the time
+set laststatus=2
 
 "end of Vundle -- required
 call vundle#end()
