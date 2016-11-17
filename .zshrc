@@ -84,17 +84,38 @@ alias omz="cd ~/.oh-my-zsh"
 alias pj="cd ~/Projects"
 alias speed-up="sudo rm /var/log/asl/*.asl"
 alias journals="cd ~/Documents/Personal/Journals/"
-alias cpp="g++ -pipe -O2 -std=c++14" 
+alias cpp="g++ -pipe -O2 -std=c++14"
+# Speed up vim with MacVim precompiled binaries
+# alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 #
 # User configuration
+#
+# Vim SuperMan
+vman() {
+  vim -c "SuperMan $*"
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+  if [ "$?" != "0"  ]; then
+    echo "No manual entry for $*"
+  fi
+}
+
+# PATH Configuration
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# go path
+export PATH="$PATH:/opt/X11/bin:/usr/local/go/bin"
 
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # export PATH="/usr/local/sbin:$PATH"
+
 # Anaconda path in bin
 export PATH=$PATH:$HOME/anaconda/bin
 
+# Yarn path in bin
 export PATH="$HOME/.yarn/bin:$PATH"
+
+export KEYTIMEOUT=15

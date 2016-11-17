@@ -15,11 +15,15 @@ call vundle#begin()
 
 "Vundle
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tomasr/molokai'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
+Plugin 'jez/vim-superman'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'rking/ag.vim'
 
 "Pathogen
 execute pathogen#infect()
@@ -78,6 +82,9 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 "uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
+"----------ag silver searcher settings------------
+let g:ag_working_path_mode="r"
+
 "end of Vundle -- required
 call vundle#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -98,7 +105,7 @@ filetype plugin indent on
 "syntax enable
 syntax on
 set background=dark
-colo molokai
+colo gruvbox
 
 "Autocompletion menu in zsh with <C-d> in vim
 set wildmenu
@@ -143,8 +150,23 @@ set timeoutlen=1000 ttimeoutlen=0
 "Enter a new line
 noremap <CR> o<ESC>k
 
+"Enter superman for manual page
+nnoremap K :SuperMan <cword><CR>
+
+"Close file without saving
+nnoremap <silent> <leader>q :q<CR>
+
+"Close file with saving
+nnoremap <silent> <leader>wq :wq<CR>
+
+"Close file all without saving
+nnoremap <silent> <leader>qa :qa<CR>
+
 "Write file
 nnoremap <silent> <leader>w :w<CR>
+
+"Write file all
+nnoremap <silent> <leader>wa :wa<CR>
 
 "Enter semi-colon at the end of the line
 map <C-s> A;<ESC>
