@@ -5,7 +5,7 @@ export ZSH=/Users/tuvttran/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="cordial"
+ZSH_THEME="bureau"
 DEFAULT_USER=`whoami`
 
 # Uncomment the following line to use case-sensitive completion.
@@ -79,12 +79,18 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconf="vim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias omz="cd ~/.oh-my-zsh"
 alias pj="cd ~/Projects"
 alias speed-up="sudo rm /var/log/asl/*.asl"
 alias journals="cd ~/Documents/Personal/Journals/"
 alias cpp="g++ -pipe -O2 -std=c++14"
+alias vim="nvim"
+alias cleands="find . -name '.DS_Store' -type f -delete"
+alias fastboot="/Users/tuvttran/Library/Android/sdk/fastboot"
+alias adb="/Users/tuvttran/Library/Android/sdk/adb"
+alias sp="spotify"
+alias wl="wunderline"
+alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 # Speed up vim with MacVim precompiled binaries
 # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
@@ -110,12 +116,20 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="$PATH:/opt/X11/bin:/usr/local/go/bin"
 
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-# export PATH="/usr/local/sbin:$PATH"
 
 # Anaconda path in bin
-export PATH=$PATH:$HOME/anaconda/bin
+export PATH=$PATH:$HOME/anaconda3/bin
 
-# Yarn path in bin
-export PATH="$HOME/.yarn/bin:$PATH"
+# Rust cargo path
+export PATH=$PATH:$HOME/.cargo/bin
+
+# virtualenvwrapper setup
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 export KEYTIMEOUT=15
+
+# ZSH syntax highlighting
+# export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.zshrc

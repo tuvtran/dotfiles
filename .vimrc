@@ -40,7 +40,7 @@ map <C-n> :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_new_tab=1
 let g:nerdtree_tabs_autoclose=1
 let g:nerdtree_tabs_focus_on_files=1
-
+let NERDTreeIgnore = ['\.class$', '\.pyc$']
 let NERDTreeShowHidden=1
 
 "----------Syntastic shit------------
@@ -105,19 +105,19 @@ filetype plugin indent on
 "syntax enable
 syntax on
 set background=dark
-colo gruvbox
+colo monokai
 
 "Autocompletion menu in zsh with <C-d> in vim
 set wildmenu
 set wildmode=full
 
 "Set up tab spaces
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set autoindent
 
 "Show tab characters
 set list
-set listchars=tab:\|\ 
+set listchars=tab:\|\
 
 "See cursorline and cursorcolumn
 set cursorline
@@ -127,6 +127,7 @@ set cursorcolumn
 set re=1
 set ttyfast
 set lazyredraw
+set scrolljump=10
 
 "Set up vim temp files directory
 set swapfile
@@ -147,14 +148,11 @@ set timeoutlen=1000 ttimeoutlen=0
 
 "MAPPING HOTKEYS
 
-"Enter a new line
-noremap <CR> o<ESC>k
-
 "Enter superman for manual page
 nnoremap K :SuperMan <cword><CR>
 
 "Close file without saving
-nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>q :q!<CR>
 
 "Close file with saving
 nnoremap <silent> <leader>wq :wq<CR>
@@ -168,6 +166,12 @@ nnoremap <silent> <leader>w :w<CR>
 "Write file all
 nnoremap <silent> <leader>wa :wa<CR>
 
+"No search highlighting
+nnoremap <silent> <leader>s :noh<CR>
+
 "Enter semi-colon at the end of the line
 map <C-s> A;<ESC>
+
+"Map jk to ESC
+inoremap jk <ESC>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
