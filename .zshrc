@@ -5,7 +5,7 @@ export ZSH=/Users/tuvttran/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bureau"
+ZSH_THEME="simple"
 DEFAULT_USER=`whoami`
 
 # Uncomment the following line to use case-sensitive completion.
@@ -80,17 +80,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconf="vim ~/.zshrc"
 alias omz="cd ~/.oh-my-zsh"
-alias pj="cd ~/Projects"
+alias pj="cd ~/DEV"
 alias speed-up="sudo rm /var/log/asl/*.asl"
-alias journals="cd ~/Documents/Personal/Journals/"
+alias wrt="cd ~/Documents/Personal/Writings/"
 alias cpp="g++ -pipe -O2 -std=c++14"
-alias vim="nvim"
 alias cleands="find . -name '.DS_Store' -type f -delete"
 alias fastboot="/Users/tuvttran/Library/Android/sdk/fastboot"
 alias adb="/Users/tuvttran/Library/Android/sdk/adb"
 alias sp="spotify"
-alias wl="wunderline"
+alias vim="nvim"
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+alias postgres-start="postgres -D /usr/local/var/postgres"
+alias gsh='git push'
 # Speed up vim with MacVim precompiled binaries
 # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
@@ -110,10 +111,17 @@ vman() {
 # PATH Configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
+# PYENV Configuration
+export PATH="$(pyenv root)/shims:$PATH"
+
+# PIPSI Configuration
+export PATH="$HOME/.local/bin:$PATH"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # go path
-export PATH="$PATH:/opt/X11/bin:/usr/local/go/bin"
+export GOPATH="$HOME/.go"
+export PATH="$PATH:/opt/X11/bin:/usr/local/go/bin:$GOPATH/bin"
 
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -123,9 +131,21 @@ export PATH=$PATH:$HOME/anaconda3/bin
 # Rust cargo path
 export PATH=$PATH:$HOME/.cargo/bin
 
+# yarn global binaries path
+export PATH=$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin
+
+# SML bin
+export PATH=$PATH:/usr/local/smlnj/bin
+
+# Latex on Mac
+export PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
+
 # virtualenvwrapper setup
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=$HOME/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 export KEYTIMEOUT=15
 
