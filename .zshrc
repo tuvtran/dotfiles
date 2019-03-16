@@ -120,13 +120,13 @@ export PATH="$HOME/.local/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # go path
-export GOPATH="$HOME/.go"
-export PATH="$PATH:/opt/X11/bin:/usr/local/go/bin:$GOPATH/bin"
+export GOPATH="$HOME/DEV/gocode"
+export PATH="$PATH:/opt/X11/bin:$GOPATH/bin"
 
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Anaconda path in bin
-export PATH=$PATH:$HOME/anaconda3/bin
+# export PATH=$PATH:$HOME/anaconda3/bin
 
 # Rust cargo path
 export PATH=$PATH:$HOME/.cargo/bin
@@ -139,6 +139,9 @@ export PATH=$PATH:/usr/local/smlnj/bin
 
 # Latex on Mac
 export PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
+
+# PHP Composer on Mac
+export PATH=$PATH:$HOME/.composer/vendor/bin
 
 # virtualenvwrapper setup
 # export WORKON_HOME=$HOME/.virtualenvs

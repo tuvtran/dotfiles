@@ -24,6 +24,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'rking/ag.vim'
+Plugin 'fatih/vim-go'
 
 "Pathogen
 execute pathogen#infect()
@@ -55,6 +56,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = '▲'
+let g:syntastic_python_checkers=['flake8', 'python3']
 
 "----------Enable JSX syntax in .js files------------
 let g:jsx_ext_required = 0
@@ -105,7 +107,7 @@ filetype plugin indent on
 "syntax enable
 syntax on
 set background=dark
-colo monokai
+colo desert
 
 "Autocompletion menu in zsh with <C-d> in vim
 set wildmenu
@@ -121,7 +123,7 @@ set listchars=tab:\|\
 
 "See cursorline and cursorcolumn
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 
 "To speed up vim
 set re=1
