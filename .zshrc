@@ -82,15 +82,13 @@ alias zshconf="vim ~/.zshrc"
 alias omz="cd ~/.oh-my-zsh"
 alias pj="cd ~/DEV"
 alias speed-up="sudo rm /var/log/asl/*.asl"
-alias wrt="cd ~/Documents/Personal/Writings/"
 alias cpp="g++ -pipe -O2 -std=c++14"
 alias cleands="find . -name '.DS_Store' -type f -delete"
 alias fastboot="/Users/tuvttran/Library/Android/sdk/fastboot"
-alias adb="/Users/tuvttran/Library/Android/sdk/adb"
-alias sp="spotify"
+# alias adb="/Users/tuvttran/Library/Android/sdk/adb"
 alias vim="nvim"
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
-alias postgres-start="postgres -D /usr/local/var/postgres"
+alias postgres-start="postgres -D /usr/local/var/postgres" # for Mac
 alias gsh='git push'
 # Speed up vim with MacVim precompiled binaries
 # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
@@ -120,8 +118,8 @@ export PATH="$HOME/.local/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # go path
-export GOPATH="$HOME/DEV/gocode"
-export PATH="$PATH:/opt/X11/bin:$GOPATH/bin"
+# export GOPATH="$HOME/DEV/gocode"
+# export PATH="$PATH:/opt/X11/bin:$GOPATH/bin"
 
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -132,16 +130,16 @@ export PATH="$PATH:/opt/X11/bin:$GOPATH/bin"
 export PATH=$PATH:$HOME/.cargo/bin
 
 # yarn global binaries path
-export PATH=$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin
+# export PATH=$PATH:`yarn global bin`:$HOME/.config/yarn/global/node_modules/.bin
 
 # SML bin
-export PATH=$PATH:/usr/local/smlnj/bin
+# export PATH=$PATH:/usr/local/smlnj/bin
 
 # Latex on Mac
-export PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
+# export PATH=$PATH:/Library/TeX/Distributions/.DefaultTeX/Contents/Programs/texbin
 
 # PHP Composer on Mac
-export PATH=$PATH:$HOME/.composer/vendor/bin
+# export PATH=$PATH:$HOME/.composer/vendor/bin
 
 # virtualenvwrapper setup
 # export WORKON_HOME=$HOME/.virtualenvs
@@ -150,9 +148,34 @@ export PATH=$PATH:$HOME/.composer/vendor/bin
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
-export KEYTIMEOUT=15
-
 # ZSH syntax highlighting
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.zshrc
+
+# jenv stuff
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# Set vim binding for zsh
+set -o vi
+export KEYTIMEOUT=1
+# Updates editor information when the keymap changes.
+function zle-keymap-select() {
+  zle reset-prompt
+  zle -R
+}
+
+zle -N zle-keymap-select
+
+function vi_mode_prompt_info() {
+  echo "${${KEYMAP/vicmd/[% NORMAL]%}/(main|viins)/[% INSERT]%}"
+}
+
+# define right prompt, regardless of whether the theme defined it
+RPS1='$(vi_mode_prompt_info)'
+RPS2=$RPS1
+
+# put vi mode in NORMAL mode when zsh starts
+zle-line-init() { zle -K vicmd; }
+zle -N zle-line-init
