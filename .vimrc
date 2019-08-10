@@ -13,6 +13,8 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 "Plugins
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
@@ -24,6 +26,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim'
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-syntastic/syntastic'
+
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
@@ -57,11 +62,16 @@ let g:syntastic_python_checkers=['flake8', 'python3']
 let g:jsx_ext_required = 0
 
 "----------vim-airline------------
+" Color settings for it to display correctly
+set lazyredraw
+set t_Co=256
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 "statusline appears all the time
 set laststatus=2
 "show PASTE if in paste mode
 let g:airline_detect_paste=1
+let g:airline_theme='simple'
 
 "----------vim-easytags setting------------
 "where to look for tags files
@@ -83,7 +93,6 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 let g:ag_working_path_mode="r"
 
 "end of vim-plug -- required
-call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
