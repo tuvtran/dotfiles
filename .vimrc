@@ -9,26 +9,21 @@
 filetype off
 set nocompatible
 
-"Enable Vundle plugin
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"Enable vim-plug
+call plug#begin('~/.vim/plugged')
 
-"Vundle
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
-Plugin 'jez/vim-superman'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'rking/ag.vim'
-Plugin 'fatih/vim-go'
-
-"Pathogen
-execute pathogen#infect()
-
+"Plugins
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
+Plug 'kien/ctrlp.vim'
+Plug 'jez/vim-superman'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'flazz/vim-colorschemes'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'rking/ag.vim'
+Plug 'fatih/vim-go'
+Plug 'scrooloose/nerdtree'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
@@ -37,7 +32,7 @@ execute pathogen#infect()
 "autocmd vimenter * NERDTree
 
 "----------NERDTree shit------------
-map <C-n> :NERDTreeTabsToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 let g:nerdtree_tabs_open_on_new_tab=1
 let g:nerdtree_tabs_autoclose=1
 let g:nerdtree_tabs_focus_on_files=1
@@ -87,8 +82,8 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 "----------ag silver searcher settings------------
 let g:ag_working_path_mode="r"
 
-"end of Vundle -- required
-call vundle#end()
+"end of vim-plug -- required
+call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
