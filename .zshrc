@@ -93,7 +93,7 @@ alias zshconf="vim ~/.zshrc"
 # alias vim="nvim"
 # alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 # alias postgres-start="postgres -D /usr/local/var/postgres" # for Mac
-# alias gsh='git push'
+# alias loadz="source ~/.zshrc"
 # Speed up vim with MacVim precompiled binaries
 # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 ######################################################################################
@@ -180,3 +180,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.zshrc
+
+# History substring search
+source ~/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
+
+# bind key for history-substring-search
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
