@@ -92,6 +92,13 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 "----------ag silver searcher settings------------
 let g:ag_working_path_mode="r"
 
+"-----------------Configure CtrlP------------------
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" ignore some file types
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*.pyc
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
 "end of vim-plug -- required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -119,6 +126,7 @@ set wildmode=full
 
 "Set up tab spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set backspace=2
 set autoindent
 
 "Show tab characters
@@ -152,32 +160,5 @@ set splitbelow
 "set delay of ESC key
 set timeoutlen=1000 ttimeoutlen=0
 
-"MAPPING HOTKEYS
-
-"Enter superman for manual page
-nnoremap K :SuperMan <cword><CR>
-
-"Close file without saving
-nnoremap <silent> <leader>q :q!<CR>
-
-"Close file with saving
-nnoremap <silent> <leader>wq :wq<CR>
-
-"Close file all without saving
-nnoremap <silent> <leader>qa :qa<CR>
-
-"Write file
-nnoremap <silent> <leader>w :w<CR>
-
-"Write file all
-nnoremap <silent> <leader>wa :wa<CR>
-
-"No search highlighting
-nnoremap <silent> <leader>s :noh<CR>
-
-"Enter semi-colon at the end of the line
-map <C-s> A;<ESC>
-
-"Map jk to ESC
-inoremap jk <ESC>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"load .vimkeymap file
+source ~/.vimkeymap
