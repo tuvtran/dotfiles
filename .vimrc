@@ -27,6 +27,8 @@ Plug 'rking/ag.vim'
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
@@ -145,6 +147,7 @@ set scrolljump=10
 
 "Set up vim temp files directory
 set swapfile
+set undofile
 set backupdir=~/.vim_tmp/backup_files//
 set directory=~/.vim_tmp/swap_files//
 set undodir=~/.vim_tmp/undo_files//
