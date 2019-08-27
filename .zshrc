@@ -53,6 +53,7 @@ DEFAULT_USER=`whoami`
 plugins=(
   git
   vi-mode
+  history
 )
 
 # export MANPATH="/usr/local/man:$MANPATH"
