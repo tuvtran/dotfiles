@@ -1,0 +1,31 @@
+"""""""""""""""""""""""MAPPING HOTKEYS""""""""""""""""""
+"Enter superman for manual page
+nnoremap K :SuperMan <cword><CR>
+
+"Close file without saving
+nnoremap <silent> <leader>q :q!<CR>
+
+"Close file with saving
+nnoremap <silent> <leader>wq :wq<CR>
+
+"Close file all without saving
+nnoremap <silent> <leader>qa :qa<CR>
+
+"Write file
+nnoremap <silent> <leader>w :w<CR>
+
+"Write file all
+nnoremap <silent> <leader>wa :wa<CR>
+
+"No search highlighting
+nnoremap <silent> <leader>s :noh<CR>
+
+" Map U to redo
+nnoremap U <C-r>
+
+"Enter semi-colon at the end of the line
+map <C-s> A;<ESC>
+
+"Map jk to ESC
+inoremap jk <ESC>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
