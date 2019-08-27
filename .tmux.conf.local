@@ -294,3 +294,7 @@ set -g mouse on
 
 # move status line to top
 #set -g status-position top
+
+# tmux-resurrect
+# https://github.com/tmux-plugins/tmux-resurrect
+run-shell ~/.tmux-resurrect/resurrect.tmux
