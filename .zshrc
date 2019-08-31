@@ -52,8 +52,8 @@ DEFAULT_USER=`whoami`
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  vi-mode
   history
+  history-substring-search
 )
 
 # export MANPATH="/usr/local/man:$MANPATH"
