@@ -1,4 +1,4 @@
-" Tribute for Robert Yokota (https://github.com/rayokota) for sharing this with me!
+" Shoutout for Robert Yokota (https://github.com/rayokota) for sharing this with me!
 set hlsearch
 set incsearch
 set showmode
@@ -11,7 +11,7 @@ set clipboard=unnamed
 set commentary
 
 " Useful mappings
-source ~/.vimrc.keymap
+source ~/.vimkeymap
 
 " ==================================================
 " Show all the provided actions via `:actionlist`
