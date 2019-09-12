@@ -28,4 +28,7 @@ map <C-s> A;<ESC>
 
 "Map jk to ESC
 inoremap jk <ESC>
+
+"Map ` to ESC
+inoremap ` <ESC>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
