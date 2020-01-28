@@ -188,3 +188,8 @@ source ~/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zs
 # bind key for history-substring-search
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+
+
+[ -s "/Users/tu/.scm_breeze/scm_breeze.sh" ] && source "/Users/tu/.scm_breeze/scm_breeze.sh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
