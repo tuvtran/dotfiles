@@ -1,6 +1,6 @@
 """""""""""""""""""""""MAPPING HOTKEYS""""""""""""""""""
 "Map the leader key to a spacebar
-let mapleader = "\<space>"
+"let mapleader = "\<space>"
 
 "Close file without saving
 nnoremap <silent> <leader>q :q!<CR>
