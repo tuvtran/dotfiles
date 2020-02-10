@@ -1,6 +1,6 @@
 """""""""""""""""""""""MAPPING HOTKEYS""""""""""""""""""
-"Enter superman for manual page
-nnoremap K :SuperMan <cword><CR>
+"Map the leader key to a spacebar
+let mapleader = "\<space>"
 
 "Close file without saving
 nnoremap <silent> <leader>q :q!<CR>
