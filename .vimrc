@@ -8,6 +8,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off
 set nocompatible
+"Map the leader key to a spacebar
+let mapleader = "\<space>"
 
 "Install vim-plug if it's not already installed.
 if empty(glob('~/.vim/autoload/plug.vim'))
