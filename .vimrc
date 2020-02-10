@@ -9,6 +9,13 @@
 filetype off
 set nocompatible
 
+"Install vim-plug if it's not already installed.
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 "Enable vim-plug
 call plug#begin('~/.vim/plugged')
 
@@ -29,8 +36,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 Plug 'sheerun/vim-polyglot'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'mileszs/ack.vim'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -47,6 +57,11 @@ let g:nerdtree_tabs_autoclose=1
 let g:nerdtree_tabs_focus_on_files=1
 let NERDTreeIgnore = ['\.class$', '\.pyc$']
 let NERDTreeShowHidden=1
+"Show bookmarks on startup
+let NERDTreeShowBookmarks=1
+"Autoclose NERDTree if it's the only open window left
+autocmd bufenter * if (winnr("$") == 1 && exists ("b:NERDTree") &&
+    \ b:NERDTree.isTabTree()) | q | endif
 
 "----------Syntastic shit------------
 set statusline+=%#warningmsg#
@@ -102,6 +117,8 @@ let g:ctrlp_cmd = 'CtrlP'
 " ignore some file types
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*.pyc
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+"Map CtrlP buffer mode to Ctrl + B
+nnoremap <C-b> :CtrlPBuffer<cr>
 
 "end of vim-plug -- required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -126,7 +143,7 @@ colo desert
 
 "Autocompletion menu in zsh with <C-d> in vim
 set wildmenu
-set wildmode=full
+set wildmode=list:longest,full
 
 "Set up tab spaces
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
@@ -147,6 +164,11 @@ set ttyfast
 set lazyredraw
 set scrolljump=10
 
+"Set folding method to indent
+set foldmethod=indent
+"Automatically open all folds
+autocmd Bufread * normal zR
+
 "Set up vim temp files directory
 set swapfile
 set undofile
@@ -164,6 +186,16 @@ set splitbelow
 
 "set delay of ESC key
 set timeoutlen=1000 ttimeoutlen=0
+
+"Close buffer without closing window.
+command! Bd :bp | :sp | :bn | :bd
+
+"Copy into system (*) register
+"set clipboard=unnamed
+"Copy into system (+) register
+"set clipboard=unnamedplus
+"Copy into system (*, +) register
+"set clipboard=unnamed,unnamedplus
 
 "load .vimkeymap file
 source ~/.vimkeymap
