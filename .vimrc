@@ -8,8 +8,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off
 set nocompatible
-"Map the leader key to a spacebar
-let mapleader = "\<space>"
 
 "Install vim-plug if it's not already installed.
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -64,6 +62,10 @@ let NERDTreeShowBookmarks=1
 "Autoclose NERDTree if it's the only open window left
 autocmd bufenter * if (winnr("$") == 1 && exists ("b:NERDTree") &&
     \ b:NERDTree.isTabTree()) | q | endif
+
+"--------------SuperMan--------------
+"Enter superman for manual page
+nnoremap K :SuperMan <cword><CR>
 
 "----------Syntastic shit------------
 set statusline+=%#warningmsg#
@@ -141,7 +143,7 @@ filetype plugin indent on
 "syntax enable
 syntax on
 set background=dark
-colo desert
+colo atom
 
 "Autocompletion menu in zsh with <C-d> in vim
 set wildmenu
