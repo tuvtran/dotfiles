@@ -20,37 +20,42 @@ endif
 call plug#begin('~/.vim/plugged')
 
 "Plugins
+"Aesthetic plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'flazz/vim-colorschemes'
+"Various vim autoload scripts to make lives easier
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
-Plug 'kien/ctrlp.vim'
 Plug 'jez/vim-superman'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'flazz/vim-colorschemes'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'rking/ag.vim'
-Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
+"Language pack for vim
 Plug 'sheerun/vim-polyglot'
+"Autocomplete for vim
 Plug 'ycm-core/YouCompleteMe'
+"Searching
+Plug 'kien/ctrlp.vim'
+"Search across codebase for vim
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'mbbill/undotree'
 
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "PLUGIN SETTINGS
 
+"----------NERDTree shit------------
 "Automatically open NERDTree when enter vim
 "autocmd vimenter * NERDTree
-
-"----------NERDTree shit------------
 map <C-n> :NERDTreeToggle<CR>
 let g:nerdtree_tabs_open_on_new_tab=1
 let g:nerdtree_tabs_autoclose=1
@@ -112,9 +117,6 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 "uncomment to open tagbar automatically whenever possible
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 
-"----------ag silver searcher settings------------
-let g:ag_working_path_mode="r"
-
 "-----------------Configure CtrlP------------------
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -123,6 +125,15 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*.pyc
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "Map CtrlP buffer mode to Ctrl + B
 nnoremap <C-b> :CtrlPBuffer<cr>
+
+"---------------------Undotree----------------------
+noremap <leader>u :UndotreeToggle<cr>
+
+"---------------------AirlineTheme----------------------
+let g:airline_theme='molokai'
+
+"----------------YouCompleteMe----------------------
+noremap <leader>] :YcmCompleter GoTo<cr>
 
 "end of vim-plug -- required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -143,7 +154,7 @@ filetype plugin indent on
 "syntax enable
 syntax on
 set background=dark
-colo atom
+colo molokai
 
 "Autocompletion menu in zsh with <C-d> in vim
 set wildmenu
@@ -176,6 +187,11 @@ autocmd Bufread * normal zR
 "Set up vim temp files directory
 set swapfile
 set undofile
+if !isdirectory("$HOME/.vim_tmp")
+    call mkdir("$HOME/.vim_tmp/backup_files", "p")
+    call mkdir("$HOME/.vim_tmp/swap_files", "p")
+    call mkdir("$HOME/.vim_tmp/undo_files", "p")
+endif
 set backupdir=~/.vim_tmp/backup_files//
 set directory=~/.vim_tmp/swap_files//
 set undodir=~/.vim_tmp/undo_files//
