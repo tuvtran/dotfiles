@@ -6,8 +6,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "FIRST AND FOREMOST"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype off
 set nocompatible
+filetype plugin on
+syntax on
 
 "Install vim-plug if it's not already installed.
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -47,6 +48,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -151,8 +153,6 @@ set mouse=a
 filetype plugin indent on
 
 "Appearances
-"syntax enable
-syntax on
 set background=dark
 colo molokai
 
