@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/tuvttran/.oh-my-zsh
+export ZSH=/home/tuvtran/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -89,8 +89,8 @@ alias zshconf="vim ~/.zshrc"
 # alias speed-up="sudo rm /var/log/asl/*.asl"
 # alias cpp="g++ -pipe -O2 -std=c++14"
 # alias cleands="find . -name '.DS_Store' -type f -delete"
-# alias fastboot="/Users/tuvttran/Library/Android/sdk/fastboot"
-# alias adb="/Users/tuvttran/Library/Android/sdk/adb"
+# alias fastboot="/home/tuvtran/Library/Android/sdk/fastboot"
+# alias adb="/home/tuvtran/Library/Android/sdk/adb"
 # alias vim="nvim"
 # alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 # alias postgres-start="postgres -D /usr/local/var/postgres" # for Mac
@@ -190,6 +190,6 @@ bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
 
-[ -s "/Users/tu/.scm_breeze/scm_breeze.sh" ] && source "/Users/tu/.scm_breeze/scm_breeze.sh"
+[ -s "/home/tuvtran/.scm_breeze/scm_breeze.sh" ] && source "/home/tuvtran/.scm_breeze/scm_breeze.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
