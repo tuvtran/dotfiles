@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/tuvtran/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -89,8 +89,8 @@ alias zshconf="vim ~/.zshrc"
 # alias speed-up="sudo rm /var/log/asl/*.asl"
 # alias cpp="g++ -pipe -O2 -std=c++14"
 # alias cleands="find . -name '.DS_Store' -type f -delete"
-# alias fastboot="/home/tuvtran/Library/Android/sdk/fastboot"
-# alias adb="/home/tuvtran/Library/Android/sdk/adb"
+# alias fastboot="$HOME/Library/Android/sdk/fastboot"
+# alias adb="$HOME/Library/Android/sdk/adb"
 # alias vim="nvim"
 # alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 # alias postgres-start="postgres -D /usr/local/var/postgres" # for Mac
@@ -117,11 +117,17 @@ vman() {
 export EDITOR="vim"
 
 # PATH Configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+# NOTE: for WSL, do not set this
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 ############################ TOOLS AND LANGUAGUES SETTINGS ############################
 # PYENV Configuration
 # export PATH="$(pyenv root)/shims:$PATH"
+######################################################################
+
+# GOENV Configuration
+# export GOENV_ROOT="$HOME/.goenv"
+# export PATH="$GOENV_ROOT/bin:$PATH"
 ######################################################################
 
 # PIPSI Configuration
@@ -131,11 +137,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 # Load RVM into a shell session *as a function*
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-######################################################################
-
-# go path
-# export GOPATH="$HOME/DEV/gocode"
-# export PATH="$PATH:/opt/X11/bin:$GOPATH/bin"
 ######################################################################
 
 # Anaconda path in bin
@@ -190,6 +191,23 @@ bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
 
-[ -s "/home/tuvtran/.scm_breeze/scm_breeze.sh" ] && source "/home/tuvtran/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS="--layout=reverse --border"
+
+autoload -U +X bashcompinit && bashcompinit
+
+# in case we need to install vault
+# complete -o nospace -C /usr/local/bin/vault vault
+# complete -o nospace -C /usr/local/bin/terraform terraform
+
+# activate goenv
+# eval "$(goenv init -)"
+# export PATH="$GOROOT/bin:$PATH"
+# export PATH="$PATH:$GOPATH/bin"
+
+# activate pyenv and pyenv virtualenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
