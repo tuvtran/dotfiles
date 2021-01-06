@@ -38,6 +38,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
+Plug 'jdhao/better-escape.vim'
 "Language pack for vim
 Plug 'sheerun/vim-polyglot'
 "Autocomplete for vim
